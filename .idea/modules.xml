@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-6-resttemplate-main/spring-6-resttemplate.iml" filepath="$PROJECT_DIR$/spring-6-resttemplate-main/spring-6-resttemplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring-6-resttemplate-main.iml" filepath="$PROJECT_DIR$/.idea/spring-6-resttemplate-main.iml" />
+    </modules>
+  </component>
+</project>
