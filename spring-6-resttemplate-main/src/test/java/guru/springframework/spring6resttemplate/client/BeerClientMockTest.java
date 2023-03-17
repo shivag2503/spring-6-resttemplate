@@ -75,6 +75,7 @@ public class BeerClientMockTest {
 
         mockRestServiceServer.expect(method(HttpMethod.GET))
                 .andExpect(requestTo(uri))
+                .andExpect(header("Authorization", "Basic dXNlcjE6cGFzc3dvcmQ="))
                 .andExpect(queryParam("beerName", "ALE"))
                 .andRespond(withSuccess(response, MediaType.APPLICATION_JSON));
 
@@ -89,6 +90,7 @@ public class BeerClientMockTest {
         mockRestServiceServer.expect(method(HttpMethod.DELETE))
                 .andExpect(requestToUriTemplate(URL + BeerClientImpl.GET_BEER_BY_ID_PATH,
                         dto.getId()))
+                .andExpect(header("Authorization", "Basic dXNlcjE6cGFzc3dvcmQ="))
                 .andRespond(withResourceNotFound());
 
         assertThrows(HttpClientErrorException.class, () -> {
@@ -103,6 +105,7 @@ public class BeerClientMockTest {
         mockRestServiceServer.expect(method(HttpMethod.DELETE))
                 .andExpect(requestToUriTemplate(URL + BeerClientImpl.GET_BEER_BY_ID_PATH,
                         dto.getId()))
+                .andExpect(header("Authorization", "Basic dXNlcjE6cGFzc3dvcmQ="))
                 .andRespond(withNoContent());
 
         beerClient.deleteBeer(dto.getId());
@@ -114,6 +117,7 @@ public class BeerClientMockTest {
         mockRestServiceServer.expect(method(HttpMethod.PUT))
                 .andExpect(requestToUriTemplate(URL + BeerClientImpl.GET_BEER_BY_ID_PATH,
                         dto.getId()))
+                .andExpect(header("Authorization", "Basic dXNlcjE6cGFzc3dvcmQ="))
                 .andRespond(withNoContent());
 
         mockGetOperation();
@@ -132,6 +136,7 @@ public class BeerClientMockTest {
         mockRestServiceServer.expect(method(HttpMethod.POST))
                         .andExpect(requestTo(URL +
                                 BeerClientImpl.GET_BEER_LIST))
+                .andExpect(header("Authorization", "Basic dXNlcjE6cGFzc3dvcmQ="))
                                 .andRespond(withAccepted().location(uri));
 
         mockGetOperation();
@@ -152,6 +157,7 @@ public class BeerClientMockTest {
         mockRestServiceServer.expect(method(HttpMethod.GET))
                 .andExpect(requestToUriTemplate(URL +
                         BeerClientImpl.GET_BEER_BY_ID_PATH, dto.getId()))
+                .andExpect(header("Authorization", "Basic dXNlcjE6cGFzc3dvcmQ="))
                 .andRespond(withSuccess(jsonResponse, MediaType.APPLICATION_JSON));
     }
 
